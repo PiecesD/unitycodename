@@ -5,11 +5,13 @@ using UnityEngine;
 public class MenuPrincipal : MonoBehaviour
 {
     [SerializeField] private GameObject painelMenuInicial;
+    [SerializeField] private GameObject painelMenuPrincipal;
     [SerializeField] private GameObject painelMenuOpcoes;
 
     public void AbrirOpcoes()
     {
         painelMenuInicial.SetActive(false);
+        painelMenuPrincipal.SetActive(false);
         painelMenuOpcoes.SetActive(true);
     }
 
@@ -17,6 +19,7 @@ public class MenuPrincipal : MonoBehaviour
     {
         painelMenuOpcoes.SetActive(false);
         painelMenuInicial.SetActive(true);
+        painelMenuPrincipal.SetActive(true);
     }
 
     public void SairJogo()
