@@ -7,6 +7,11 @@ public class MenuPrincipal : MonoBehaviour
     [SerializeField] private GameObject painelMenuInicial;
     [SerializeField] private GameObject painelMenuPrincipal;
     [SerializeField] private GameObject painelMenuOpcoes;
+    [SerializeField] private GameObject painelMenuDicas;
+    [SerializeField] private GameObject painelMenuGaleria;
+    [SerializeField] private GameObject painelMenuTutorial;
+    [SerializeField] private GameObject painelMenuProfessor;
+    [SerializeField] private GameObject painelMenuCreditos;
 
     public void AbrirOpcoes()
     {
@@ -21,6 +26,79 @@ public class MenuPrincipal : MonoBehaviour
         painelMenuInicial.SetActive(true);
         painelMenuPrincipal.SetActive(true);
     }
+
+    public void AbrirDicas()
+    {
+        painelMenuInicial.SetActive(false);
+        painelMenuPrincipal.SetActive(false);
+        painelMenuDicas.SetActive(true);
+    }
+
+    public void FecharDicas()
+    {
+        painelMenuDicas.SetActive(false);
+        painelMenuInicial.SetActive(true);
+        painelMenuPrincipal.SetActive(true);
+    }
+
+    public void AbrirGaleria()
+    {
+        painelMenuInicial.SetActive(false);
+        painelMenuPrincipal.SetActive(false);
+        painelMenuGaleria.SetActive(true);
+    }
+
+    public void FecharGaleria()
+    {
+        painelMenuGaleria.SetActive(false);
+        painelMenuInicial.SetActive(true);
+        painelMenuPrincipal.SetActive(true);
+    }
+
+    public void AbrirTutorial()
+    {
+        painelMenuInicial.SetActive(false);
+        painelMenuPrincipal.SetActive(false);
+        painelMenuTutorial.SetActive(true);
+    }
+
+    public void FecharTutorial()
+    {
+        painelMenuTutorial.SetActive(false);
+        painelMenuInicial.SetActive(true);
+        painelMenuPrincipal.SetActive(true);
+    }
+
+    public void AbrirRelatorio()
+    {
+        painelMenuInicial.SetActive(false);
+        painelMenuPrincipal.SetActive(false);
+        painelMenuProfessor.SetActive(true);
+    }
+
+    public void FecharRelatorio()
+    {
+        painelMenuProfessor.SetActive(false);
+        painelMenuInicial.SetActive(true);
+        painelMenuPrincipal.SetActive(true);
+    }
+
+    public void AbrirCreditos()
+    {
+        painelMenuInicial.SetActive(false);
+        painelMenuPrincipal.SetActive(false);
+        painelMenuCreditos.SetActive(true);
+    }
+
+    public void FecharCreditos()
+    {
+        painelMenuCreditos.SetActive(false);
+        painelMenuInicial.SetActive(true);
+        painelMenuPrincipal.SetActive(true);
+    }
+
+
+
 
     public void SairJogo()
     {
