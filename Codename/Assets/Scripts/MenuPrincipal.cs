@@ -12,6 +12,8 @@ public class MenuPrincipal : MonoBehaviour
     [SerializeField] private GameObject painelMenuTutorial;
     [SerializeField] private GameObject painelMenuProfessor;
     [SerializeField] private GameObject painelMenuCreditos;
+    [SerializeField] private GameObject painelMenuLoginGame;
+    [SerializeField] private GameObject painelMenuLoginTeacher;
 
     public void AbrirOpcoes()
     {
@@ -73,6 +75,7 @@ public class MenuPrincipal : MonoBehaviour
     {
         painelMenuInicial.SetActive(false);
         painelMenuPrincipal.SetActive(false);
+        painelMenuLoginTeacher.SetActive(false);
         painelMenuProfessor.SetActive(true);
     }
 
@@ -95,6 +98,34 @@ public class MenuPrincipal : MonoBehaviour
         painelMenuCreditos.SetActive(false);
         painelMenuInicial.SetActive(true);
         painelMenuPrincipal.SetActive(true);
+    }
+
+    public void AbrirLogin()
+    {
+        painelMenuInicial.SetActive(false);
+        painelMenuPrincipal.SetActive(false);
+        painelMenuLoginGame.SetActive(true);
+    }
+
+    public void FecharLogin()
+    {
+        painelMenuInicial.SetActive(true);
+        painelMenuPrincipal.SetActive(true);
+        painelMenuLoginGame.SetActive(false);
+    }
+
+    public void AbrirLoginT()
+    {
+        painelMenuInicial.SetActive(false);
+        painelMenuPrincipal.SetActive(false);
+        painelMenuLoginTeacher.SetActive(true);
+    }
+
+    public void FecharLoginT()
+    {
+        painelMenuInicial.SetActive(true);
+        painelMenuPrincipal.SetActive(true);
+        painelMenuLoginTeacher.SetActive(false);
     }
 
 
