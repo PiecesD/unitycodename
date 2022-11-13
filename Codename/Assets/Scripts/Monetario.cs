@@ -14,18 +14,59 @@ public class Monetario : MonoBehaviour
     [SerializeField] TextMeshProUGUI qtdeWindow;
     [SerializeField] TextMeshProUGUI qtdeDoor;
     [SerializeField] TextMeshProUGUI qtdeRoof;
+
     [SerializeField] private GameObject buttonPurchaseP;
     [SerializeField] private GameObject buttonPlaceP;
+    [SerializeField] private GameObject buttonPurchaseW;
+    [SerializeField] private GameObject buttonPlaceW;
+    [SerializeField] private GameObject buttonPurchaseF;
+    [SerializeField] private GameObject buttonPlaceF;
+    [SerializeField] private GameObject buttonPurchaseWi;
+    [SerializeField] private GameObject buttonPlaceWi;
+    [SerializeField] private GameObject buttonPurchaseD;
+    [SerializeField] private GameObject buttonPlaceD;
+    [SerializeField] private GameObject buttonPurchaseR;
+    [SerializeField] private GameObject buttonPlaceR;
+
+    [SerializeField] private GameObject buttonPlaceMoon;
+    [SerializeField] private GameObject buttonPlaceSun;
+
     [SerializeField] private GameObject painelCantAfford;
     [SerializeField] private GameObject painelAFK;
 
     [SerializeField] private GameObject Pillar;
     [SerializeField] private GameObject Pillar2;
+    [SerializeField] private GameObject Wall;
+    [SerializeField] private GameObject Floor;
+    [SerializeField] private GameObject Roof;
+    [SerializeField] private GameObject Roof2;
+    [SerializeField] private GameObject Roof3;
+    [SerializeField] private GameObject Window;
+    [SerializeField] private GameObject Door;
+
+    [SerializeField] private GameObject Moon;
+    [SerializeField] private GameObject Sun;
     double moneySoma = 0.00;
     int clicou = 0;
     int clicouComprar = 0;
+
     int qtdeClicouP = 0;
     int qtdePilares = 0;
+
+    int qtdeClicouW = 0;
+    int qtdeParedes = 0;
+
+    int qtdeClicouF = 0;
+    int qtdeChao = 0;
+
+    int qtdeClicouR = 0;
+    int qtdeTelhado = 0;
+
+    int qtdeClicouD = 0;
+    int qtdePorta = 0;
+
+    int qtdeClicouWi = 0;
+    int qtdeJanelas = 0;
 
     public void ComprouPillar()
     {
@@ -55,6 +96,147 @@ public class Monetario : MonoBehaviour
         }
     }
 
+    public void ComprouWall()
+    {
+        if (qtdeParedes == 0)
+        {
+            clicouComprar = clicouComprar + 1;
+            if (moneySoma >= 120)
+            {
+                moneySoma = moneySoma - 120;
+                qtdeClicouW++;
+                qtdeWall.text = "" + qtdeClicouW;
+                if (qtdeClicouW == 4)
+                {
+                    qtdeParedes = 1;
+                    buttonPurchaseW.SetActive(false);
+                    buttonPlaceW.SetActive(true);
+                }
+            }
+            else
+            {
+                painelCantAfford.SetActive(true);
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    public void ComprouFloor()
+    {
+        if (qtdeChao == 0)
+        {
+            clicouComprar = clicouComprar + 1;
+            if (moneySoma >= 85)
+            {
+                moneySoma = moneySoma - 85;
+                qtdeClicouF++;
+                qtdeFloor.text = "" + qtdeClicouF;
+                if (qtdeClicouF == 1)
+                {
+                    qtdeChao = 1;
+                    buttonPurchaseF.SetActive(false);
+                    buttonPlaceF.SetActive(true);
+                }
+            }
+            else
+            {
+                painelCantAfford.SetActive(true);
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    public void ComprouRoof()
+    {
+        if (qtdeTelhado == 0)
+        {
+            clicouComprar = clicouComprar + 1;
+            if (moneySoma >= 285)
+            {
+                moneySoma = moneySoma - 285;
+                qtdeClicouR++;
+                qtdeRoof.text = "" + qtdeClicouR;
+                if (qtdeClicouR == 1)
+                {
+                    qtdeTelhado = 1;
+                    buttonPurchaseR.SetActive(false);
+                    buttonPlaceR.SetActive(true);
+                }
+            }
+            else
+            {
+                painelCantAfford.SetActive(true);
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    public void ComprouDoor()
+    {
+        if (qtdePorta == 0)
+        {
+            clicouComprar = clicouComprar + 1;
+            if (moneySoma >= 75)
+            {
+                moneySoma = moneySoma - 75;
+                qtdeClicouD++;
+                qtdeDoor.text = "" + qtdeClicouD;
+                if (qtdeClicouD == 2)
+                {
+                    qtdePorta = 1;
+                    buttonPurchaseD.SetActive(false);
+                    buttonPlaceD.SetActive(true);
+                }
+            }
+            else
+            {
+                painelCantAfford.SetActive(true);
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    public void ComprouWindow()
+    {
+        if (qtdeJanelas == 0)
+        {
+            clicouComprar = clicouComprar + 1;
+            if (moneySoma >= 97)
+            {
+                moneySoma = moneySoma - 97;
+                qtdeClicouWi++;
+                qtdeWindow.text = "" + qtdeClicouWi;
+                if (qtdeClicouWi == 3)
+                {
+                    qtdeJanelas = 1;
+                    buttonPurchaseWi.SetActive(false);
+                    buttonPlaceWi.SetActive(true);
+                }
+            }
+            else
+            {
+                painelCantAfford.SetActive(true);
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+
     public void PosicionouPillar()
     {
         qtdeClicouP = 0;
@@ -62,6 +244,48 @@ public class Monetario : MonoBehaviour
         buttonPlaceP.SetActive(false);
         Pillar.SetActive(true);
         Pillar2.SetActive(true);
+    }
+
+    public void PosicionouWall()
+    {
+        qtdeClicouW = 0;
+        qtdeWall.text = "" + qtdeClicouW;
+        buttonPlaceW.SetActive(false);
+        Wall.SetActive(true);
+    }
+
+    public void PosicionouFloor()
+    {
+        qtdeClicouF = 0;
+        qtdeFloor.text = "" + qtdeClicouF;
+        buttonPlaceF.SetActive(false);
+        Floor.SetActive(true);
+    }
+
+    public void PosicionouRoof()
+    {
+        qtdeClicouR = 0;
+        qtdeRoof.text = "" + qtdeClicouR;
+        buttonPlaceR.SetActive(false);
+        Roof.SetActive(true);
+        Roof2.SetActive(true);
+        Roof3.SetActive(true);
+    }
+
+    public void PosicionouWindow()
+    {
+        qtdeClicouWi = 0;
+        qtdeWindow.text = "" + qtdeClicouWi;
+        buttonPlaceWi.SetActive(false);
+        Window.SetActive(true);
+    }
+
+    public void PosicionouDoor()
+    {
+        qtdeClicouD = 0;
+        qtdeDoor.text = "" + qtdeClicouD;
+        buttonPlaceD.SetActive(false);
+        Door.SetActive(true);
     }
 
     public void Trabalhar()
@@ -107,6 +331,22 @@ public class Monetario : MonoBehaviour
             workLevel.text = "Lv. 7";
             workName.text = "Policial";
         }
+    }
+
+    public void TornarDia()
+    {
+        Moon.SetActive(false);
+        Sun.SetActive(true);
+        buttonPlaceSun.SetActive(false);
+        buttonPlaceMoon.SetActive(true);
+    }
+
+    public void TornarNoite()
+    {
+        Moon.SetActive(true);
+        Sun.SetActive(false);
+        buttonPlaceSun.SetActive(true);
+        buttonPlaceMoon.SetActive(false);
     }
 
     public void FecharAviso()
