@@ -364,7 +364,7 @@ public class Monetario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        moneyAmount.text = "R$ " + moneySoma + ",00";
     }
 
     
