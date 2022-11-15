@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Monetario : MonoBehaviour
 {
@@ -46,6 +47,9 @@ public class Monetario : MonoBehaviour
 
     [SerializeField] private GameObject Moon;
     [SerializeField] private GameObject Sun;
+    [SerializeField] private GameObject Day;
+    [SerializeField] private GameObject Night;
+
     double moneySoma = 0.00;
     int clicou = 0;
     int clicouComprar = 0;
@@ -67,6 +71,11 @@ public class Monetario : MonoBehaviour
 
     int qtdeClicouWi = 0;
     int qtdeJanelas = 0;
+    double random;
+
+    public Button botaoMenor30;
+    public Button botaoEntre3080;
+    public Button botaoMaior80;
 
     public void ComprouPillar()
     {
@@ -324,12 +333,27 @@ public class Monetario : MonoBehaviour
         else if (clicou == 65)
         {
             workLevel.text = "Lv. 6";
-            workName.text = "Advogado";
+            workName.text = "Policial";
         }
         else if (clicou == 85)
         {
             workLevel.text = "Lv. 7";
-            workName.text = "Policial";
+            workName.text = "Advogado";
+        }
+        else if (clicou == 105)
+        {
+            workLevel.text = "Lv. 8";
+            workName.text = "Médico";
+        }
+        else if (clicou == 125)
+        {
+            workLevel.text = "Lv. 9";
+            workName.text = "Desembargador";
+        }
+        else if (clicou == 145)
+        {
+            workLevel.text = "Lv. 10 - Máximo";
+            workName.text = "Pleno";
         }
     }
 
@@ -337,6 +361,8 @@ public class Monetario : MonoBehaviour
     {
         Moon.SetActive(false);
         Sun.SetActive(true);
+        Day.SetActive(true);
+        Night.SetActive(false);
         buttonPlaceSun.SetActive(false);
         buttonPlaceMoon.SetActive(true);
     }
@@ -345,12 +371,16 @@ public class Monetario : MonoBehaviour
     {
         Moon.SetActive(true);
         Sun.SetActive(false);
+        Night.SetActive(true);
+        Day.SetActive(false);
         buttonPlaceSun.SetActive(true);
         buttonPlaceMoon.SetActive(false);
     }
 
     public void FecharAviso()
     {
+        random = Random.Range(0, 90);
+        moneySoma = moneySoma + random;
         painelCantAfford.SetActive(false);
         painelAFK.SetActive(false);
     }
